@@ -1,0 +1,40 @@
+version: 2
+jobs:
+  lint_cmd:
+    docker:
+      - image: circleci/golang:latest
+    steps:
+      - checkout
+      - run:
+          name: Lint cmd
+          command: make lint_cmd
+  test_cmd:
+    docker:
+      - image: circleci/golang:latest
+    steps:
+      - checkout
+      - run:
+          name: Run Unit Tests
+          command: make test_cmd
+  release_cmd:
+    docker:
+      - image: circleci/golang:latest
+    steps:
+      - checkout
+      - run:
+          name: Release cmd
+          command: make release_cmd
+      - persist_to_workspace:
+          root: .
+          paths:
+            - ./release/*
+workflows:
+  version: 2
+  build:
+    jobs:
+      - lint_cmd
+      - test_cmd
+      - release_cmd:
+          filters:
+            branches:
+              only: master

@@ -1,0 +1,13 @@
+[
+  {
+    "AWS_ACCESS_KEY_ID": "string",
+    "AWS_SECRET_ACCESS_KEY": "secret_string",
+    "projects": [
+      {
+        "name": "grace-sample",
+        "AWS_ACCESS_KEY_ID": "DEVELOPMENT_AWS_ACCESS_KEY_ID",
+        "AWS_SECRET_ACCESS_KEY": "DEVELOPMENT_AWS_SECRET_ACCESS_KEY"
+      }
+    ]
+  }
+]

@@ -13,3 +13,6 @@ release/
 .DS_Store
 */.DS_Store
 /.vscode
+
+## AWS credentials
+credentials.json

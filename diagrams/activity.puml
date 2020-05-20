@@ -1,0 +1,18 @@
+@startuml
+start
+:get list of IAM credentials
+CircleCI Projects and
+Env variable names;
+repeat :for each IAM credential;
+  :authenticate with old credentials;
+  :generate new credentials;
+  :authenticate with new credentials;
+  repeat :for each CircleCI project;
+    :AddEnvKey(${ENV}_AWS_ACCESS_KEY_ID, newKey);
+    :AddEnvKey(${ENV}_AWS_SECRET_ACCESS_KEY, newSecret);
+  repeat while (more projects?)
+  :delete old access key;
+repeat while (more credentials?)
+:save new credentials list;
+end
+@enduml
